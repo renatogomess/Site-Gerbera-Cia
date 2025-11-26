@@ -1,0 +1,171 @@
+/* ===== CORES UNIFICADAS ===== */
+:root {
+    --verde-principal: #4caf50; /* header, footer */
+    --verde-botao: #4caf50; /* botões */
+    --verde-botao-hover: #43a047; /* hover mais escuro */
+    --fundo: #f8f9fa; /* fundo geral */
+    --cinza-claro: #f1f1f1;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: var(--fundo);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===== HEADER E FOOTER ===== */
+.header, .footer {
+    background-color: var(--verde-principal);
+    color: white;
+}
+
+.header h1, .footer p {
+    margin: 0;
+    font-weight: 700;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-link:hover {
+    color: #d4ffd4 !important;
+    transform: translateY(-2px);
+    text-decoration: underline;
+}
+
+/* ===== HERO BANNER ===== */
+.hero {
+    height: 75vh;
+    overflow: hidden;
+}
+
+.hero-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(65%);
+}
+
+.hero-text {
+    color: white;
+    max-width: 700px;
+    padding: 20px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* ===== SEÇÕES ===== */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--verde-principal);
+}
+
+/* ===== CARDS ===== */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--verde-principal);
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* ===== BOTÕES ===== */
+.btn-success, .btn-custom {
+    background-color: var(--verde-botao);
+    color: white;
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-success:hover, .btn-custom:hover {
+    background-color: var(--verde-botao-hover);
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* ===== FORMULÁRIOS ===== */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 0.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 992px) {
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .card-img-top {
+        height: 180px;
+    }
+    .hero {
+        height: 55vh;
+    }
+}

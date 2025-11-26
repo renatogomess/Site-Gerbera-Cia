@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Loja de Flores</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover; /* Ajusta a imagem para cobrir o container sem distorção */
+        }
+    </style>
+    
+
+    <script>
+        // Função para atualizar o preço total
+        function updateTotal() {
+            let gerberaPrice = 15.00;
+            let rosePrice = 20.00;
+            let lilyPrice = 25.00;
+            let arrangementPrice = 50.00;
+            let daisyPrice = 10.00;
+            let sunflowerPrice = 30.00;
+
+            let gerberaQty = parseInt(document.getElementById('gerbera-qty').value);
+            let roseQty = parseInt(document.getElementById('rose-qty').value);
+            let lilyQty = parseInt(document.getElementById('lily-qty').value);
+            let arrangementQty = parseInt(document.getElementById('arrangement-qty').value);
+            let daisyQty = parseInt(document.getElementById('daisy-qty').value);
+            let sunflowerQty = parseInt(document.getElementById('sunflower-qty').value);
+
+            let total = (gerberaQty * gerberaPrice) + (roseQty * rosePrice) + 
+                        (lilyQty * lilyPrice) + (arrangementQty * arrangementPrice) + 
+                        (daisyQty * daisyPrice) + (sunflowerQty * sunflowerPrice);
+
+            document.getElementById('total-price').textContent = 'R$ ' + total.toFixed(2);
+        }
+
+        function increaseQuantity(id) {
+            let qty = document.getElementById(id);
+            qty.value = parseInt(qty.value) + 1;
+            updateTotal();
+        }
+
+        function decreaseQuantity(id) {
+            let qty = document.getElementById(id);
+            if (qty.value > 0) {
+                qty.value = parseInt(qty.value) - 1;
+                updateTotal();
+            }
+        }
+    </script>
+</head>
+<body onload="updateTotal()">
+
+    <div class="container my-5 p-4 bg-white shadow">
+        <h1 class="text-center mb-4">Carrinho de Compras</h1>
+
+        <!-- Item Gérbera -->
+        <div class="row mb-4 cart-item align-items-center">
+            <div class="col-md-2">
+                <img src="imgs/istockphoto-1093549186-612x612.jpg" alt="Gérbera" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Gérbera rosa</h3>
+                <p>Preço: R$ 15,00</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="btn btn-secondary quantity-btn" onclick="decreaseQuantity('gerbera-qty')">-</button>
+                <input type="text" id="gerbera-qty" value="0" readonly class="text-center" style="width: 40px;">
+                <button class="btn btn-secondary quantity-btn" onclick="increaseQuantity('gerbera-qty')">+</button>
+            </div>
+        </div>
+
+        <!-- Item Rosa -->
+        <div class="row mb-4 cart-item align-items-center">
+            <div class="col-md-2">
+                <img src="imgs/close-de-uma-rosa-vermelha-com-orvalho-no-topo-em-um-preto_181624-28079.png" alt="Rosa" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Rosa</h3>
+                <p>Preço: R$ 20,00</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="btn btn-secondary quantity-btn" onclick="decreaseQuantity('rose-qty')">-</button>
+                <input type="text" id="rose-qty" value="0" readonly class="text-center" style="width: 40px;">
+                <button class="btn btn-secondary quantity-btn" onclick="increaseQuantity('rose-qty')">+</button>
+            </div>
+        </div>
+
+        <!-- Item Lírio -->
+        <div class="row mb-4 cart-item align-items-center">
+            <div class="col-md-2">
+                <img src="imgs/flower-3763573_1280.png" alt="Lírio" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Lírio</h3>
+                <p>Preço: R$ 25,00</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="btn btn-secondary quantity-btn" onclick="decreaseQuantity('lily-qty')">-</button>
+                <input type="text" id="lily-qty" value="0" readonly class="text-center" style="width: 40px;">
+                <button class="btn btn-secondary quantity-btn" onclick="increaseQuantity('lily-qty')">+</button>
+            </div>
+        </div>
+
+        <!-- Item Arranjo de Flores -->
+        <div class="row mb-4 cart-item align-items-center">
+            <div class="col-md-2">
+                <img src="imgs/pixelcut-export.png" alt="Arranjo de Flores" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Arranjo de Flores</h3>
+                <p>Preço: R$ 50,00</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="btn btn-secondary quantity-btn" onclick="decreaseQuantity('arrangement-qty')">-</button>
+                <input type="text" id="arrangement-qty" value="0" readonly class="text-center" style="width: 40px;">
+                <button class="btn btn-secondary quantity-btn" onclick="increaseQuantity('arrangement-qty')">+</button>
+            </div>
+        </div>
+
+        <!-- Item Margaridas -->
+        <div class="row mb-4 cart-item align-items-center">
+            <div class="col-md-2">
+                <img src="imgs/adesivo-de-parede-margarida-floral-para-sala-e-quarto.jpg" alt="Margaridas" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Margaridas</h3>
+                <p>Preço: R$ 10,00</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="btn btn-secondary quantity-btn" onclick="decreaseQuantity('daisy-qty')">-</button>
+                <input type="text" id="daisy-qty" value="0" readonly class="text-center" style="width: 40px;">
+                <button class="btn btn-secondary quantity-btn" onclick="increaseQuantity('daisy-qty')">+</button>
+            </div>
+        </div>
+
+        <!-- Item Girassol -->
+        <div class="row mb-4 cart-item align-items-center">
+            <div class="col-md-2">
+                <img src="imgs/Skin-care-2024-02-02T031003.725.png" alt="Arranjo Girassol" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Arranjo Girassol</h3>
+                <p>Preço: R$ 30,00</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="btn btn-secondary quantity-btn" onclick="decreaseQuantity('sunflower-qty')">-</button>
+                <input type="text" id="sunflower-qty" value="0" readonly class="text-center" style="width: 40px;">
+                <button class="btn btn-secondary quantity-btn" onclick="increaseQuantity('sunflower-qty')">+</button>
+            </div>
+        </div>
+
+        <!-- Total -->
+        <div class="text-end total">
+            Total: <span id="total-price">R$ 0,00</span>
+        </div>
+
+        <!-- Botão Finalizar Compra -->
+        <a href="#" class="btn btn-success checkout-btn mt-4 d-block">Finalizar Compra</a>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
